@@ -1,0 +1,108 @@
+.wrapper-class {
+    padding: .75rem;
+    border: 1px solid #ccc;
+}
+
+.editor-class {
+    background-color: rgb(85, 85, 85);
+    padding: 1rem;
+    border: 1px solid #ccc;
+    color: #fff;
+    min-height: 200px;
+    /* max-height: 80vh; */
+    overflow-y: auto;
+}
+
+.toolbar-class {
+    background-color: #000 !important;
+    position: sticky;
+    top: 45px;
+    z-index: 999;
+}
+
+.editor-font-size {
+    background-color: black;
+}
+
+.rdw-image-alignment-option,
+.rdw-image-alignment-options-popup,
+.rdw-link-modal,
+.rdw-colorpicker-modal,
+.rdw-emoji-modal,
+.rdw-embedded-modal,
+.rdw-image-modal,
+.rdw-dropdown-optionwrapper {
+    box-shadow: 3px 3px 5px #3a3a3a !important;
+    background: rgb(92, 92, 92) !important
+}
+
+.rdw-dropdownoption-active {
+    background: var(--primary) !important;
+}
+
+.rdw-link-modal-input,
+.rdw-link-modal>* input,
+.rdw-embedded-modal>* input,
+.rdw-image-modal>* input {
+    color: rgb(255, 255, 255) !important;
+    background: rgb(65, 64, 64) !important;
+    padding-left: 7px;
+}
+
+.rdw-dropdownoption-highlighted {
+    color: #fff;
+    background-color: var(--primary) !important;
+}
+
+.rdw-dropdown-selectedtext {
+    text-decoration: none;
+    color: var(--dark) !important;
+}
+
+.rdw-colorpicker-modal-options {
+    margin: 0 !important;
+}
+
+.rdw-colorpicker-modal-style-label-active {
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+.rdw-colorpicker-option {
+    width: 25px !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.rdw-emoji-modal {
+    padding-right: 0 !important;
+}
+
+.rdw-emoji-icon {
+    margin: 0 2px 5px 0 !important;
+}
+
+.rdw-embedded-modal-header-label,
+.rdw-image-modal-header-label-highlighted {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+.rdw-link-modal-btn,
+.rdw-image-modal-btn,
+.rdw-embedded-modal-btn {
+    border: none !important;
+    color: #fff;
+    border-radius: 4px !important;
+    background-color: var(--primary) !important;
+}
+
+.rdw-link-modal-btn:disabled,
+.rdw-image-modal-btn:disabled,
+.rdw-embedded-modal-btn:disabled {
+    opacity: 0.4;
+}
+
+.rdw-image-mandatory-sign {
+    color: #000 !important;
+}

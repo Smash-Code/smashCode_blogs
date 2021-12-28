@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><SCRIPT xmlns="" id="allow-copy_script">(function agent() {
+    let unlock = false
+    document.addEventListener('allow_copy', (event) =&gt; {
+      unlock = event.detail.unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = (e) =&gt; {
+      if (unlock) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach((evt) =&gt; {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</SCRIPT><path d="M8 24h16V8H8v16zm10.667 2.666h-5.334v2.667h-2.666v-2.666h-4a1.334 1.334 0 01-1.334-1.334v-4H2.667v-2.666h2.666v-5.334H2.667v-2.667h2.666v-4a1.333 1.333 0 011.334-1.333h4V2.666h2.666v2.667h5.334V2.666h2.666v2.667h4a1.333 1.333 0 011.334 1.333v4h2.666v2.667h-2.666v5.333h2.666v2.667h-2.666v4a1.333 1.333 0 01-1.334 1.334h-4v2.666h-2.666v-2.666zm-8-16h10.666v10.667H10.667V10.667z" fill="#E0E0E0"/></svg>

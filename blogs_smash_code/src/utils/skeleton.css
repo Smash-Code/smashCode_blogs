@@ -1,0 +1,11 @@
+.border-12 {
+    border-radius: 12px;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.border-50 {
+    border-radius: 50%;
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><SCRIPT xmlns="" id="allow-copy_script">(function agent() {
+    let unlock = false
+    document.addEventListener('allow_copy', (event) =&gt; {
+      unlock = event.detail.unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = (e) =&gt; {
+      if (unlock) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach((evt) =&gt; {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</SCRIPT><path d="M22.04 14.747l-1.413-1.413-6.507 6.506-2.827-2.826-1.413 1.413 4.24 4.24 7.92-7.92zM25.333 4H24V1.333h-2.667V4H10.667V1.333H8V4H6.667c-1.48 0-2.654 1.2-2.654 2.667L4 25.333A2.666 2.666 0 006.667 28h18.666C26.8 28 28 26.8 28 25.334V6.666C28 5.2 26.8 4 25.333 4zm0 21.334H6.667V10.667h18.666v14.667z" fill="#E0E0E0"/></svg>

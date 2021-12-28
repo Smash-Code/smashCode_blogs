@@ -1,0 +1,262 @@
+.selectImg-wrapper {
+    border: 2px dashed var(--primary);
+    width: 135px;
+    height: 135px;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.selectImg-wrapper input {
+    display: none;
+}
+
+.selectImg-wrapper img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.img-picker {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 111;
+    cursor: pointer;
+    color: var(--primary)
+}
+
+.img-picker svg {
+    width: 100%;
+}
+
+.remove-img-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.view-blog-db-img {
+    width: 100%;
+    max-width: fit-content;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: rgba(233, 233, 233, 0.829);
+    border: 1px dashed var(--primary);
+    margin: 0 auto;
+}
+
+.no-record-found {
+    margin: 8px auto;
+    text-align: center;
+}
+
+.no-record-found h4 {
+    font-size: 1.7rem;
+    margin: 12px auto 10px auto;
+    padding-bottom: 15px;
+}
+
+.no-record-found img {
+    width: 90px;
+    height: 90px;
+}
+
+.no-record-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: #f7fafc;
+    box-shadow: 0px 2px 1px #e1e3ec;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.search-records-row {
+    /* background-color: #ebf5e3 !important; */
+    position: relative;
+}
+
+.search-res-notify {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    color: var(--primary);
+    font-size: 1.2rem;
+    justify-content: space-between;
+    background-color: var(--dark)
+}
+
+.search-res-notify span {
+    font-size: .7rem;
+}
+
+.SelectprodImgWrapper {
+    width: 104px;
+    height: 104px;
+    position: relative;
+    vertical-align: top;
+    margin: 0 6px 6px 0;
+    overflow: hidden;
+}
+
+.img-select-btn-full {
+    width: 100%;
+    height: auto;
+    min-height: 120px;
+    max-height: 550px;
+}
+
+.SelectprodImgWrapper-2 {
+    width: 125px
+}
+
+.formProdimg {
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border: none;
+    outline: none;
+}
+
+.insti-banner-img {
+    height: 190px !important;
+}
+
+.profileimg {
+    border-radius: 50%;
+    width: 120px !important;
+    height: 120px !important;
+    overflow: visible !important;
+}
+
+.profileimg button {
+    border-radius: 50%;
+}
+
+.profileimg .imgSelbtn {
+    overflow: hidden;
+}
+
+.profileimg .removeimg {
+    right: 17px !important;
+}
+
+.blog-model-toolbar {
+    min-height: 45px !important;
+}
+
+.media-upload-wrapper {
+    max-width: 750px;
+    max-height: 500px;
+    margin: 0 auto;
+}
+
+.media-upload-wrapper img {
+    width: 100%;
+    max-width: 750px;
+    max-height: 500px;
+    object-fit: contain !important;
+}
+
+.media-upload-wrapper video {
+    width: 100%;
+    max-width: 750px;
+    max-height: 500px;
+    object-fit: contain !important;
+}
+
+.cs_progress_wrapper {
+    border-radius: 50px;
+    background: rgba(128, 128, 128, 0.514);
+    height: 8px;
+    overflow: hidden;
+    width: 100%;
+    min-width: 550px;
+    flex: 1;
+    margin-right: 15px;
+}
+
+.cs_progress {
+    border-radius: 50px;
+    background: var(--primary);
+    height: 8px;
+}
+
+.image-flexbox {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin: 45px auto;
+}
+
+.doc-card,
+.img-card {
+    width: 31.2%;
+    margin: 12px 8px;
+    border-radius: 8px;
+    min-height: 300px;
+    height: auto;
+    background: #00000050;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 3px solid #00000050;
+    box-shadow: 2px 5px 15px #00000031;
+    opacity: .7;
+}
+
+.doc-card {
+    flex-direction: column;
+    width: auto;
+    min-width: 200px;
+    max-width: 240px;
+    min-height: 200px;
+    height: auto;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 12px 15px;
+}
+
+.img-card img {
+    width: 100%;
+    max-height: 275px;
+    object-fit: contain;
+    margin: auto;
+}
+
+.img-card video {
+    width: 100%;
+    max-height: 275px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.min-h-100 {
+    min-height: 80vh;
+}

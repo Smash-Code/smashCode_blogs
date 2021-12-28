@@ -1,0 +1,247 @@
+.footer-section {
+    width: 100vw;
+    font: 1.4rem sans-serif;
+    font-weight: normal;
+    overflow: hidden;
+}
+
+.footer-section ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer-section {
+    background: #151414;
+    position: relative;
+}
+
+.footer-cta {
+    width: 100%;
+    position: relative;
+    border-bottom: .7px solid #373636;
+}
+
+.cta-icons-top {
+    width: 10%;
+    min-height: 50px;
+    text-align: center;
+}
+
+.cta-icons-top>* {
+    color: var(--primary);
+    font-size: 2rem
+}
+
+.cta-text {
+    width: 90%;
+    padding-left: 8px;
+}
+
+.cta-text h4 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 1.2rem;
+}
+
+.cta-text span {
+    font-size: 1.1rem;
+    color: #757575;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-logo img {
+    max-width: 120px;
+    margin-left: -30px;
+}
+
+.footer-text p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #7e7e7e;
+    /* line-height: 28px; */
+    text-align: left;
+    font-size: 15px;
+}
+
+.footer-social-icon a {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.footer-social-icon a>* {
+    width: 44px;
+    height: 44px;
+    padding: 7px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 4px 9px 8px 0;
+}
+
+.footer-social-icon a:hover {
+    color: var(--white)
+}
+
+.facebook-bg {
+    background: #3b5998;
+}
+
+.insta-bg {
+    background: #E1306C;
+}
+
+.twitter-bg {
+    background: #55acee;
+}
+
+.google-bg {
+    background: #ff5e14;
+}
+
+.whatsapp-bg {
+    background-color: #25D366;
+}
+
+.github-bg {
+    background-color: #fff;
+    color: #000
+}
+
+.linkedin-bg {
+    background-color: #0e76a8;
+}
+
+.youtube-bg {
+    background-color: #990412;
+}
+
+.skype-bg {
+    background-color: #2193c8;
+}
+
+.blog-bg {
+    background-color: cyan;
+    color: #000
+}
+
+.footer-widget-heading h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer-widget-heading h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 50px;
+    background: var(--primary);
+}
+
+.footer-widget ul li {
+    display: inline-block;
+    min-width: 40%;
+    margin-right: 17px;
+    /* background-color: red; */
+    margin-bottom: 12px;
+}
+
+.footer-widget ul li a:hover {
+    color: var(--primary);
+}
+
+.footer-widget ul li a {
+    color: #878787;
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.subscribe-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.subscribe-form input:valid {
+    border-bottom: 1px solid #54d40a;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 0 28px;
+    background: #2e2e2e;
+    border: none;
+    border-bottom: 1px solid var(--primary);
+    color: #fff;
+    outline: none;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    height: 50px;
+}
+
+.is-invalid {
+    border-bottom: 1px solid var(--primary) !important;
+}
+
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: var(--primary);
+    padding: 0 20px;
+    border: 1px solid var(--primary);
+    top: 0;
+    height: 50px;
+}
+
+.subscribe-form button i {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.copyright-area {
+    background: #202020;
+    padding: 12px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+    font-size: .9rem;
+}
+
+.copyright-text p a {
+    color: var(--primary);
+}
+
+@media screen and (max-width:550px) {
+    .cta-text h4 {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .cta-text span {
+        font-size: .9rem;
+    }
+    .cta-icons-top>* {
+        color: var(--primary);
+        font-size: 1.4rem
+    }
+}
