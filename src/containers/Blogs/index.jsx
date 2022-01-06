@@ -6,6 +6,11 @@ import { useDataContext } from "context/DataContext";
 import BigBlogCard from "utils/bigBlogCard";
 import { Link } from "react-router-dom";
 
+let replaceAllSpaces = (para) =>{
+    return para?.replace(/\s+/g, '-')?.toLowerCase();
+}
+
+
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     const { mostViewedBlogs, allBlogsData, featuredBlogs, loadMore, is_more_data, allCategories } = useDataContext();
@@ -75,7 +80,7 @@ const Blogs = () => {
                                         className="m-2 cursor-pointer chip-Links"
                                         variant="outlined"
                                         component={Link}
-                                        to={`/category/${category.id}`}
+                                        to={`/category/${replaceAllSpaces(category.title)}/${category.id}`}
                                         label={category.title}
                                     />
                                     : null
