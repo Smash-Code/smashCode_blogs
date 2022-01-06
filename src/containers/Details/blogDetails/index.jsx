@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { BlogDetailSkeleton, CustomCardSkeleton } from "utils/skeleton";
 import { Typography, Chip, Avatar, Card, IconButton } from "@material-ui/core";
 import { Visibility } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDataContext } from "context/DataContext";
 import { useNotifyContext } from "context/notifyContext";
 import BlogCard from "utils/blogCard";
@@ -13,11 +13,14 @@ import ReactHtmlParser from "react-html-parser";
 import draftToHtml from 'draftjs-to-html';
 import { db } from "config/firebase";
 import CommentArea from "components/commentsArea/CommentArea";
-import { Helmet } from "react-helmet";
-import SEO from "context/SEO";
+// import { Helmet } from "react-helmet";
+
+let replaceAllSpaces = (para) =>{
+    return para?.replace(/\s+/g, '-')?.toLowerCase();
+}
 
 const BlogDetails = (props) => {
-    let blogID = props.match.params.id;
+    let {blogID} = useParams();
     const [blogDetails, setBlogDetails] = useState({});
     const [loaded, setLoaded] = useState(false);
     const [relatedLoaded, setRelatedLoaded] = useState(false);
@@ -275,15 +278,8 @@ const BlogDetails = (props) => {
 
     return (
         <>
-            <SEO
-                description={blogDetails?.description}
-                // meta={''}
-                title={blogDetails?.title}
-                pageUrl={window.location?.href}
-                image={blogDetails?.blog_img}
-            />
             <div className="blog-container">
-                <Helmet>
+                {/* <Helmet>
                     <meta charSet="utf-8" />
                     <meta name="title" content={blogDetails?.title || "Smash-Code"} />
                     <meta name="description" content={blogDetails?.description || ""} />
@@ -298,7 +294,7 @@ const BlogDetails = (props) => {
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta property="twitter:image" content={blogDetails?.blog_img || "https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"} />
                     <meta property="twitter:title" content={blogDetails?.title || "Smash-Code"} />
-                </Helmet>
+                </Helmet> */}
 
                 {/* <button onClick={toggleStar}>Share to Workplace</button> */}
                 {loaded ?
@@ -311,7 +307,7 @@ const BlogDetails = (props) => {
                                     <Chip
                                     component={Link}
                                         className="mt-sm-0 mt-1 cursor-pointer"
-                                        to={`/blog/category/${blogDetails.category?.id}`}
+                                        to={`/category/${replaceAllSpaces(blogDetails?.category?.title)}/${blogDetails.category?.id}`}
                                         variant="outlined" label={categoryDetails ? categoryDetails.title : "Category"} style={{ fontSize: "17px" }} />}
                             </div>
                             <div className="col-lg-8 col-12">
@@ -335,11 +331,7 @@ const BlogDetails = (props) => {
                                         </Typography>
                                     </div>
                                 </div>
-                                <div className="my-2 detail-blog-img-wraps text-center"
-                                // style={{ backgroundImage: 
-                                // `url(${blogDetails?.blog_img || ""})` }
-                                // }
-                                >
+                                <div className="my-2 detail-blog-img-wraps text-center">
                                     <img src={blogDetails?.blog_img || "smash-code"} alt="" />
                                 </div>
                             </div>
@@ -350,7 +342,7 @@ const BlogDetails = (props) => {
                                     </div>
                                     <div className="trending-post-card-body">
                                         {mostViewedBlogs.data.length > 0 ? mostViewedBlogs.data.slice(0, 25).map((tr, i) => (
-                                            <Link key={i} to={`/blog/${tr.id}`}
+                                            <Link key={i} to={`/blog/${replaceAllSpaces(tr.title)}/${tr.id}`}
                                                 className="trending-item d-flex flex-wrap">
                                                 <div className="col-2">
                                                     <Avatar width={30} height={30} src={tr?.blog_img} alt={tr?.category?.title?.slice(0, 1) || "."} />
@@ -406,9 +398,9 @@ const BlogDetails = (props) => {
                                 <div className="col-12 my-3">
                                     {blogDetails.tags.map((tag, ind) => (
                                         <Chip 
-                                        className="m-2 cursor-pointer"
-                                        component={Link} 
-                                        to={`/blog/category/${blogDetails.category?.id}`}
+                                        className="m-2"
+                                        // component={Link} 
+                                        // to={`/category/${blogDetails.category?.id}`}
                                         key={ind} 
                                         label={tag}
                                         variant="outlined"
@@ -432,7 +424,7 @@ const BlogDetails = (props) => {
                                         className="m-2 cursor-pointer chip-Links"
                                         variant="outlined"
                                         component={Link}
-                                        to={`/blog/category/${category.id}`}
+                                        to={`/category/${category.id}`}
                                         label={category.title}
                                     />
                                 ))}

@@ -140,12 +140,12 @@ const Footer = (props) => {
                     <Link
                       to="/blogs"
                       className="a-simple"
-                      style={{
-                        color:
-                          props.location.pathname === "/blogs"
-                            ? "var(--primary)"
-                            : "",
-                      }}
+                      // style={{
+                      //   color:
+                      //     props.location.pathname === "/blogs"
+                      //       ? "var(--primary)"
+                      //       : "",
+                      // }}
                     >
                       <FaBook />  blogs
                     </Link>

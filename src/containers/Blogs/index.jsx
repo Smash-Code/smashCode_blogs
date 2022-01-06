@@ -64,6 +64,24 @@ const Blogs = () => {
                         }
                     </div>
                 </div>
+                {allCategories && allCategories.data?.length > 0 &&
+                    <div className="row my-4">
+                        <div className="col-12">
+                            <Typography className="mb-3" variant="h4" color="inherit">All Categories</Typography>
+                            {allCategories.data.map((category, ind) => (
+                                category.inUse ?
+                                    <Chip
+                                        key={ind}
+                                        className="m-2 cursor-pointer chip-Links"
+                                        variant="outlined"
+                                        component={Link}
+                                        to={`/category/${category.id}`}
+                                        label={category.title}
+                                    />
+                                    : null
+                            ))}
+                        </div>
+                    </div>}
             </div>
             <div className="blog-container mt-2 mb-3">
                 <div className="row cards-row">
@@ -81,22 +99,7 @@ const Blogs = () => {
                             <button onClick={viewMore} className="primary-btn cs-btn">View more</button>
                         </div>}
                 </div>
-                {allCategories && allCategories.data?.length > 0 &&
-                    <div className="row my-4">
-                        <div className="col-12">
-                            <Typography className="mb-3" variant="h4" color="inherit">All Categories</Typography>
-                            {allCategories.data.map((category,ind) => (
-                                <Chip
-                                    key={ind}
-                                    className="m-2 cursor-pointer chip-Links"
-                                    variant="outlined"
-                                    component={Link}
-                                    to={`/blog/category/${category.id}`}
-                                    label={category.title}
-                                />
-                            ))}
-                        </div>
-                    </div>}
+
                 <div className="row cards-row">
                     <div className="section-heading">
                         <span className="sec-subtitle"> Most</span>

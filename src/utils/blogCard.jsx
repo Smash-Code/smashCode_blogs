@@ -5,6 +5,10 @@ import ShareDropdown from "./ShareDropdown";
 import { Link } from 'react-router-dom';
 import { FaRegEye } from 'react-icons/fa';
 
+let replaceAllSpaces = (para) =>{
+    return para?.replace(/\s+/g, '-')?.toLowerCase();
+}
+
 export default function BlogCard({ data, type, descLength }) {
     const [open, setOpen] = useState(false);
 
@@ -64,7 +68,7 @@ export default function BlogCard({ data, type, descLength }) {
                 <CardActionArea
                     className="a-white  overflow-hidden position-relative text-white text-decoration-none"
                     component={Link}
-                    to={`/blog/${data.id}`}>
+                    to={`/blog/${replaceAllSpaces(data.title)}/${data.id}`}>
                     <CardMedia
                         className="img-card-media"
                         component="img"
@@ -94,13 +98,13 @@ export default function BlogCard({ data, type, descLength }) {
         return (
             <div className="cs-blog-card">
                 <div className="cs-blog-card-img">
-                    <Link to={`/blog/${data.id}`}>
+                    <Link to={`/blog/${replaceAllSpaces(data.title)}/${data.id}`}>
                         <img src={data?.blog_img || ''} alt={data?.title || "."} />
                     </Link>
                 </div>
                 <div className="cs-blog-card-content">
-                    <Link to={`/blog/${data.id}`} className="cs-card-title">{data?.title?.slice(0, 50)}</Link>
-                    <Link to={`/blog/${data.id}`} className="cs-card-bodyText">{data?.description?.slice(0, 130)}</Link>
+                    <Link to={`/blog/${replaceAllSpaces(data.title)}/${data.id}`} className="cs-card-title">{data?.title?.slice(0, 50)}</Link>
+                    <Link to={`/blog/${replaceAllSpaces(data.title)}/${data.id}`} className="cs-card-bodyText">{data?.description?.slice(0, 130)}</Link>
                 </div>
                 <div className="cs-blog-card-footer">
                     <div className="cs-card-share-side">

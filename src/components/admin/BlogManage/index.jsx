@@ -26,6 +26,7 @@ import CloseIcon from "@material-ui/icons/Close"
 
 
 let dbBlogsRef = db.ref('blogs');
+let dbCategoryRef = db.ref('categories');
 
 
 // Data Table setup
@@ -322,14 +323,12 @@ const BlogForm = ({ selected, categoryList, loading, setModel, setLoading, setAs
     // check update or add new
     const addOrEdit = () => {
         if (formData.blog_img && formData.title.trim()) {
-
             setLoading(true);
             if (selected) {
                 updateData()
             } else {
                 addNewData()
             }
-
         } else {
             setAskModel({ open: true, btn1: true, btn2: false, head: "Alert!", info: "Please fill the form correctly!" })
         }
@@ -394,6 +393,13 @@ const BlogForm = ({ selected, categoryList, loading, setModel, setLoading, setAs
                 status: 1,
                 body: JSON.stringify(convertToRaw(contentState))
             }).then(() => {
+                dbCategoryRef.child(formData?.category?.id).update({
+                    inUse: true,
+                }).then(()=>{
+                }).catch((err)=>{
+                    console.log(err.message)
+                    set_notify({ open: true, msg: "Blog Posted Successfully. But category not updated for more information check console.", type: "success" })
+                })
                 setLoading(false);
                 set_notify({ open: true, msg: "Blog Posted Successfully.", type: "success" })
                 setFormData({
@@ -413,8 +419,8 @@ const BlogForm = ({ selected, categoryList, loading, setModel, setLoading, setAs
                     views: null
                 });
                 setEditorState(EditorState.createEmpty());
-                setSelectedTag([''])
-                setModel(false)
+                setSelectedTag(['']);
+                setModel(false);
             }).catch((error) => {
                 setLoading(false);
                 set_notify({ open: true, msg: error.message, type: "error" })
@@ -440,6 +446,13 @@ const BlogForm = ({ selected, categoryList, loading, setModel, setLoading, setAs
                 status: 2,
                 body: JSON.stringify(convertToRaw(contentState))
             }).then(() => {
+                dbCategoryRef.child(formData?.category?.id).update({
+                    inUse: true,
+                }).then(()=>{
+                }).catch((err)=>{
+                    console.log(err.message)
+                    set_notify({ open: true, msg: "Blog Posted Successfully. But category not updated for more information check console.", type: "success" })
+                })
                 setLoading(false);
                 set_notify({ open: true, msg: "Blog updated Successfully.", type: "success" })
                 setFormData({
@@ -522,6 +535,7 @@ const BlogForm = ({ selected, categoryList, loading, setModel, setLoading, setAs
             }
         );
     }
+
     return (
         <>
             <AppBar position="sticky">

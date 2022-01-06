@@ -3,6 +3,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const BigBlogCard = ({ data }) => {
+
     function nFormatter(num, digits) {
         var si = [
             { value: 1, symbol: "" },
@@ -22,9 +23,11 @@ const BigBlogCard = ({ data }) => {
         }
         return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
     }
-
+    let replaceAllSpaces = (para) =>{
+        return para?.replace(/\s+/g, '-')?.toLowerCase();
+    }
     return (
-        <Link to={`/blog/${data.id}`} 
+        <Link to={`/blog/${replaceAllSpaces(data.title)}/${data.id}`} 
         className="big-card-wrapper text-decoration-none a-white d-flex flex-column justify-content-end align-items-end"
             // style={{ background: `url(${data?.blog_img?.toString() || ""})` }}
         >

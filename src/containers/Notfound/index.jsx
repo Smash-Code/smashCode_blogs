@@ -2,19 +2,11 @@ import React from 'react';
 import "assets/css/404.css"
 import {Link} from "react-router-dom";
 import {Button} from "@material-ui/core";
-import SEO from 'context/SEO';
 
 const index = () => {
     return (
       
         <div className="notfound_404">
-           <SEO 
-        description={'Smash-Code is one of the best software development company. Based on Pakistan.'}
-        // meta={''}
-        title={'Learn Programming & Online Earning ,Freelancing. ReadMore'}
-        pageUrl={window.location?.href}
-        image={'https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"'}
-        />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 355">
          
         <g id="ocean">

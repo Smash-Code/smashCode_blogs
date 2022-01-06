@@ -12,7 +12,7 @@ const ConfirmDialog = (props) => {
     const {setAskModel,onClick} = props;
     // console.log(props.onClick)
     return (
-        <Dialog open={open} TransitionComponent={Transition} onClose={()=>setAskModel({
+        <Dialog open={open} TransitionComponent={Transition} onClose={()=> setAskModel({
             open:false,
             head:"",
             btn1:true,
@@ -27,7 +27,7 @@ const ConfirmDialog = (props) => {
         </DialogContent>
         <DialogActions>
             {btn2 &&
-                <IconButton color="primary" onClick={()=>setAskModel({
+                <IconButton color="primary" onClick={()=> setAskModel({
                     open:false,
                     head:"",
                     btn1:true,

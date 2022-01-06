@@ -108,7 +108,13 @@ const ManageCategory = () => {
                         : <Loader type="imgloader" />}
                 </div>
             }
-            <ConfirmDialog data={openAskPopup} onClick={() => { setAskOpenPopup({ open: false, btn1: true, btn2: false, head: "", info: "" }); openAskPopup.func && openAskPopup.func() }} setAskOpenPopup={setAskOpenPopup} />
+            <ConfirmDialog data={openAskPopup}
+                onClick={() => {
+                    setAskOpenPopup({ open: false, btn1: true, btn2: false, head: "", info: "" });
+                    openAskPopup.func && openAskPopup.func()
+                }}
+                setAskModel={setAskOpenPopup}
+            />
             <Model model={viewDetails} setModel={setViewDetails} title={"View Details"}>
                 <div className="UserupdateFormAdmin" style={{ minWidth: "400px" }}>
                     <DetailData setOpen={setViewDetails} selRec={selRec} set_notify={set_notify} />
@@ -124,7 +130,8 @@ function RecordsTable(props) {
     const { set_notify } = useNotifyContext();
     const [data, setDta] = useState([]);
     const [searching, setSearching] = useState(false);
-    const { TblContainer, TblHead, StyledTableRow, rowsPerPage, page } = UseTable(searching ? data : props.allCategories, HeadCells); function removeSelectedData(nam) {
+    const { TblContainer, TblHead, StyledTableRow, rowsPerPage, page } = UseTable(searching ? data : props.allCategories, HeadCells);
+    function removeSelectedData(nam) {
         props.setAskOpenPopup({
             open: true,
             btn1: true, btn2: true,
@@ -565,13 +572,13 @@ const NewForm = ({ setFullScreenLoader, selRec, setOpen, setAskOpenPopup }) => {
         }
     }
     // handle tags
-    const handleTags = (e,listOfTags) => {
+    const handleTags = (e, listOfTags) => {
         setNewCategory({
             ...newCategory,
             tags: listOfTags
         })
     }
-    
+
     return (
         <>
             <Grid container spacing={3} className="p-3">
@@ -594,7 +601,7 @@ const NewForm = ({ setFullScreenLoader, selRec, setOpen, setAskOpenPopup }) => {
                         label="Description"
                         fullWidth
                         error={errors.description}
-                        helperText={errors.description ?  errorMsgs.description : `(${newCategory.description ? newCategory.description.length : 0}/5000)`}
+                        helperText={errors.description ? errorMsgs.description : `(${newCategory.description ? newCategory.description.length : 0}/5000)`}
                         value={newCategory.description}
                         onChange={(e) => handleNewCategoryDetails(e)}
                     />
@@ -609,7 +616,7 @@ const NewForm = ({ setFullScreenLoader, selRec, setOpen, setAskOpenPopup }) => {
                             onChange={handleTags}
                             renderTags={(value, getTagProps) =>
                                 value.map((option, index) => {
-                                    return(
+                                    return (
                                         <Chip key={index} variant="outlined" label={option} {...getTagProps({ index })} />
                                     )
                                 })
@@ -751,9 +758,9 @@ const DetailData = (props) => {
                     <h5 className="w-100 mb-2">Tags</h5>
                     <ListItemText
                         primary={
-                            viewCategoryDetails.tags&& viewCategoryDetails.tags.map((option, index) => {
-                                return(
-                                    <Chip className="my-2 mx-1" key={index} variant="outlined" label={option}/>
+                            viewCategoryDetails.tags && viewCategoryDetails.tags.map((option, index) => {
+                                return (
+                                    <Chip className="my-2 mx-1" key={index} variant="outlined" label={option} />
                                 )
                             })
                         }

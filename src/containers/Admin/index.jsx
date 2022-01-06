@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useAuthContext } from "context/AuthContext"
 import LoginModel from "components/loginModel/Login"
-import { Button, CircularProgress } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Loader from "utils/Loader";
 import Panel from "./Panel";
 import { connect } from "react-redux";
 import { get_All_Blogs, get_All_categories } from "store/action"
-import SEO from "context/SEO";
 
 const AdminPanel = (props) => {
     const { state } = useAuthContext();
@@ -22,25 +21,12 @@ const AdminPanel = (props) => {
 
     if (state.isAuthenticated && state.loadedUser) {
         if (state.user.admin === true) {
-            return <> <Panel />
-                <SEO
-                    description={'Smash-Code is one of the best software development company. Based on Pakistan.'}
-                    // meta={''}
-                    title={'Learn Programming & Online Earning ,Freelancing. ReadMore'}
-                    pageUrl={window.location?.href}
-                    image={'https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"'}
-                />
+            return <> 
+            <Panel />
             </>
         } else {
             return (
                 <div className="notForadmin">
-                    <SEO
-                        description={'Smash-Code is one of the best software development company. Based on Pakistan.'}
-                        // meta={''}
-                        title={'Learn Programming & Online Earning ,Freelancing. ReadMore'}
-                        pageUrl={window.location?.href}
-                        image={'https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"'}
-                    />
                     <div id="clouds">
                         <div className="cloud x1"></div>
                         <div className="cloud x1_5"></div>
@@ -63,24 +49,10 @@ const AdminPanel = (props) => {
     } else {
         if (state.loadedUser === false) {
             return <> <Loader type="imgloader_fixed" />
-                <SEO
-                    description={'Smash-Code is one of the best software development company. Based on Pakistan.'}
-                    // meta={''}
-                    title={'Learn Programming & Online Earning ,Freelancing. ReadMore'}
-                    pageUrl={window.location?.href}
-                    image={'https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"'}
-                />
             </>
         } else {
             return (
                 <div className="container">
-                    <SEO
-                        description={'Smash-Code is one of the best software development company. Based on Pakistan.'}
-                        // meta={''}
-                        title={'Learn Programming & Online Earning ,Freelancing. ReadMore'}
-                        pageUrl={window.location?.href}
-                        image={'https://firebasestorage.googleapis.com/v0/b/blogs-smash-code.appspot.com/o/uploads%2Fmedia%2FmainLogo.png-Mowiyb46OT8mTRi0rL2?alt=media&token=0557ccc8-f66e-47ed-80f7-8b64a270fbfa"'}
-                    />
                     <div className="row my-5 py-5">
                         <div className="col-md-5 col-12 mx-auto d-flex flex-wrap justify-content-center align-items-center">
                             <Button className="my-2 mx-2 d-inline" variant="contained" color="primary" onClick={() => setLoginModel(true)}>Login </Button>
